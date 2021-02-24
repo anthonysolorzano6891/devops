@@ -25,7 +25,7 @@ Este proyecto es un ejemplo de una aplicación Java usando Spring Boot que utili
     mvn clean package
 ```
 
-7. Para que actuator muestre todos los endpoints se agrega en el archivo **_aplication.properties_** lo siguiente: `management.endpoints.web.exposure.include=\*`
+7. Para que actuator muestre todos los endpoints se agrega en el archivo **_application.properties_** lo siguiente: `management.endpoints.web.exposure.include=\*`
 8. Se crea un nuevo repositorio en github, de preferencia público y se dejan los valores en default.
 9. Se agrega el nuevo repositorio remoto al nuestro ya existente en la máquina local.
 
