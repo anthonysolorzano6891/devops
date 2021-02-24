@@ -8,7 +8,9 @@ import com.dachshundcompany.devops.service.ToolService;
 import com.dachshundcompany.devops.web.dto.ToolDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,5 +56,26 @@ public class DevopsRestController {
         List result = new ArrayList<Tool>();
         toolService.findAll().forEach(result::add);
         return result;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    @GetMapping(path = "/{toolId}")
+    public Tool getToolById(@PathVariable(value = "toolId")int toolId) {
+
+        return toolService.findById(toolId);
+    }
+
+    /**
+     * Delete a Rating of a tour made by a customer
+     *
+     * @param tourId     tour identifier
+     * @param customerId customer identifier
+     */
+    @DeleteMapping(path = "/{toolId}")
+    public void delete(@PathVariable(value = "toolId") int toolId) {
+        toolService.deleteToolById(toolId);
     }
 }

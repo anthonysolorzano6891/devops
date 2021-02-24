@@ -1,5 +1,7 @@
 package com.dachshundcompany.devops.service;
 
+import java.util.Optional;
+
 import com.dachshundcompany.devops.domain.Tool;
 import com.dachshundcompany.devops.repo.ToolRepository;
 
@@ -32,5 +34,25 @@ public class ToolService {
      */
     public Iterable<Tool> findAll() {
         return toolRepository.findAll();
+    }
+
+    /**
+     * 
+     * @param id
+     * @return
+     */
+    public Tool findById(Integer id) {
+
+        Tool tool = null;
+        Optional <Tool>  response = toolRepository.findById(id);
+        
+        if  (response.isPresent()) {
+            tool = response.get();
+        }
+        return tool;
+    }
+
+    public void deleteToolById(Integer id) {
+        toolRepository.deleteById(id);
     }
 }
